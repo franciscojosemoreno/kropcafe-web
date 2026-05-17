@@ -7,7 +7,8 @@ export const siteConfig = {
   instagram: 'https://www.instagram.com/krop.cafe',
   linktree: 'https://linktr.ee/krop.cafe',
 
-  menuOnline: 'https://krop-cafe-caitas.menustic.com',
+  menuOnline: 'https://drive.google.com/drive/folders/1HLbxt0elUe3IY2yhN2TbjCAF5WNVAZTU?hl=es',
+  menuOnlineBarrioChino: 'https://drive.google.com/drive/folders/1pjzfTJeykiPCDeObtagLgNMFGl8BQ-uY?hl=es',
 
   featuredDrinks: [
     {

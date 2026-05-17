@@ -68,7 +68,15 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="font-sans text-sm text-white/50 hover:text-white transition-colors"
               >
-                Ver menú online →
+                Menú Cañitas →
+              </a>
+              <a
+                href={siteConfig.menuOnlineBarrioChino}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-sm text-white/50 hover:text-white transition-colors"
+              >
+                Menú Barrio Chino →
               </a>
               <div className="flex flex-col gap-1 mt-2">
                 {['Specialty Coffee', 'Bebidas Fresh', 'Para Comer', 'Sin TACC · Vegano'].map((cat) => (

@@ -64,14 +64,24 @@ export default function Menu() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <a
-            href={siteConfig.menuOnline}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-krop"
-          >
-            Ver menú completo →
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={siteConfig.menuOnline}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-krop"
+            >
+              Menú Cañitas →
+            </a>
+            <a
+              href={siteConfig.menuOnlineBarrioChino}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-krop"
+            >
+              Menú Barrio Chino →
+            </a>
+          </div>
         </motion.div>
 
       </div>
