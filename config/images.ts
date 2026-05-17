@@ -9,7 +9,7 @@ export const images = {
   gallery: Array.from({ length: 12 }, (_, i) => `/images/gallery-${i + 1}.jpg`),
   petFriendly: ['/images/pet-1.jpg', '/images/pet-2.jpg'],
   menuFresh: '/images/menu-fresh.jpg',
-  drinkMatcha:  '/images/drink-matcha.jpg',
-  drinkHibiscus: '/images/drink-hibiscus.jpg',
-  drinkDubai:   '/images/drink-dubai.jpg',
+  drinkMatcha:  '/images/drink-matcha.png',
+  drinkHibiscus: '/images/drink-hibiscus.png',
+  drinkDubai:   '/images/drink-dubai.png',
 }

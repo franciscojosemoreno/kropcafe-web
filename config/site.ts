@@ -14,19 +14,19 @@ export const siteConfig = {
       id: 'matcha',
       name: 'Iced Matcha Mango',
       description: 'Matcha premium con mango fresco. Refrescante, tropical y lleno de energía.',
-      image: '/images/drink-matcha.jpg',
+      image: '/images/drink-matcha.png',
     },
     {
       id: 'hibiscus',
       name: 'Hibiscus Tonic',
       description: 'Flores de hibiscus con agua tónica. Floral, cítrico y sin cafeína.',
-      image: '/images/drink-hibiscus.jpg',
+      image: '/images/drink-hibiscus.png',
     },
     {
       id: 'dubai',
       name: 'Iced Latte Dubai',
       description: 'Espresso sobre leche fría con crema de pistacho. El favorito de la casa.',
-      image: '/images/drink-dubai.jpg',
+      image: '/images/drink-dubai.png',
     },
   ],
 
