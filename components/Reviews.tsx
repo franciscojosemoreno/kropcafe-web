@@ -4,7 +4,44 @@ import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const reviewsByLocation: Record<string, { name: string; text: string; time: string; rating: number }[]> = {
-  canitas: [],
+  canitas: [
+    {
+      name: 'Clau Managua',
+      time: 'hace 11 meses',
+      rating: 5,
+      text: 'Uno de mis lugares favoritos para el cafecito de cualquier momento del día. Siempre me atienden con buena onda, los chicos entienden perfecto lo que quiero y hasta me sugieren opciones para mejorar mi elección. El café es realmente excelente, se nota que hay conocimiento y dedicación detrás. Además son Pet Lovers, amo.',
+    },
+    {
+      name: 'Yamile Gallo',
+      time: 'hace un año',
+      rating: 5,
+      text: 'Las sillas incómodas, las mesas minúsculas, el servicio meh y había la mitad de lo que pedíamos pero aún así le pongo 5 estrellas porque lo poco que había era delicioso. Probamos el moccalima y seguro es lo que desayuna dios en el paraíso. El café de especialidad de verdad y el chipa vegetariano sin palabras.',
+    },
+    {
+      name: 'Maite Arza',
+      time: 'hace 7 meses',
+      rating: 4,
+      text: 'Muy rico café y el pan de chocolate delicioso. Muy amable la atención del "equipo de la tarde". Vine a trabajar con mis ventas mientras tomaba un café y me quedé porque me sentí muy cómoda con el ambiente.',
+    },
+    {
+      name: 'Solci',
+      time: 'hace 9 meses',
+      rating: 5,
+      text: 'Un lindo cafe en la zona de cañitas. Adentro no hay mesas, solo afuera. Muy ricos los budines!',
+    },
+    {
+      name: 'Bruno Miranda',
+      time: 'hace 6 meses',
+      rating: 5,
+      text: 'Excelente ambiente. El personal muy amable y atento. El café de especialidad muy rico. Me quedé con ganas de probar más cosas. Lugar súper recomendado.',
+    },
+    {
+      name: 'Juan Manuel Morales',
+      time: 'hace 4 años',
+      rating: 4,
+      text: 'Excelente. El café del lugar tiene la temperatura exacta para cualquier paladar. La comida que venden es rica y se nota que es orgánica. La ubicación es ideal y tienen bancos junto con mesas de madera que hacen de la experiencia un poco más excéntrica. Súper recomendable!',
+    },
+  ],
   barriochino: [],
 }
 
