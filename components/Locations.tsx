@@ -1,0 +1,92 @@
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { siteConfig } from '@/config/site'
+
+export default function Locations() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  return (
+    <section id="locales" ref={ref} className="py-24 md:py-36 bg-dark-900">
+      <div className="container-custom">
+
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-label">Locales</span>
+          <h2 className="section-title text-white">
+            Encontranos
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {siteConfig.locations.map((loc, i) => (
+            <motion.div
+              key={loc.id}
+              className="border border-white/10 overflow-hidden hover:border-krop-500/40 transition-colors"
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 * i }}
+            >
+              {/* Map */}
+              <div className="aspect-[16/9] bg-dark-700">
+                <iframe
+                  src={loc.mapSrc}
+                  className="w-full h-full grayscale opacity-80"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={loc.name}
+                />
+              </div>
+
+              {/* Info */}
+              <div className="p-6">
+                <h3 className="font-display font-black text-xl uppercase tracking-wide text-white mb-1">
+                  {loc.name}
+                </h3>
+                <p className="font-sans text-sm text-krop-400 mb-4">
+                  {loc.address} · {loc.neighborhood}
+                </p>
+
+                <div className="flex items-center gap-2 mb-6">
+                  <svg className="w-4 h-4 text-white/30 flex-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="font-sans text-xs text-white/40">{loc.hours}</p>
+                </div>
+
+                <div className="flex gap-3 flex-wrap">
+                  <a
+                    href={loc.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-krop text-xs py-3 px-5"
+                  >
+                    Cómo llegar
+                  </a>
+                  {loc.whatsapp && (
+                    <a
+                      href={`https://wa.me/${loc.whatsapp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline-krop text-xs py-3 px-5"
+                    >
+                      WhatsApp
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,111 @@
+'use client'
+
+import { useState, useRef } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
+
+const reviewsByLocation: Record<string, { name: string; text: string; time: string; rating: number }[]> = {
+  canitas: [],
+  barriochino: [],
+}
+
+const locations = [
+  { id: 'canitas', label: 'Cañitas' },
+  { id: 'barriochino', label: 'Barrio Chino' },
+]
+
+function Stars({ n }: { n: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} className={`w-3 h-3 ${i < n ? 'fill-krop-500' : 'fill-white/20'}`} viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  )
+}
+
+export default function Reviews() {
+  const [active, setActive] = useState('canitas')
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const reviews = reviewsByLocation[active]
+
+  return (
+    <section ref={ref} className="py-24 md:py-36 bg-dark-800">
+      <div className="container-custom">
+
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-label">Reseñas</span>
+          <h2 className="section-title text-white mb-4">
+            Lo que dicen
+          </h2>
+        </motion.div>
+
+        {/* Location tabs */}
+        <div className="flex justify-center gap-2 mb-10">
+          {locations.map((loc) => (
+            <button
+              key={loc.id}
+              onClick={() => setActive(loc.id)}
+              className={`font-display font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 border-2 transition-all ${
+                active === loc.id
+                  ? 'bg-krop-500 border-krop-500 text-white'
+                  : 'border-white/20 text-white/50 hover:border-white/40 hover:text-white/70'
+              }`}
+            >
+              {loc.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Reviews grid or placeholder */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            {reviews.length === 0 ? (
+              <div className="text-center py-16">
+                <p className="font-serif italic text-white/30 text-lg">Próximamente reseñas de {locations.find(l => l.id === active)?.label}.</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {reviews.map((r, i) => (
+                  <motion.div
+                    key={i}
+                    className="bg-dark-900 border border-white/10 p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.05 * i }}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-9 h-9 rounded-full bg-krop-500/20 border border-krop-500/30 flex items-center justify-center flex-none">
+                        <span className="font-display font-black text-sm text-krop-400">{r.name[0]}</span>
+                      </div>
+                      <div>
+                        <p className="font-display font-bold text-sm uppercase tracking-wide text-white">{r.name}</p>
+                        <p className="font-sans text-xs text-white/30">{r.time}</p>
+                      </div>
+                    </div>
+                    <Stars n={r.rating} />
+                    <p className="font-sans text-xs text-white/60 leading-relaxed mt-3">"{r.text}"</p>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+      </div>
+    </section>
+  )
+}
