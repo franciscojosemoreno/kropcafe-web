@@ -42,7 +42,44 @@ const reviewsByLocation: Record<string, { name: string; text: string; time: stri
       text: 'Excelente. El café del lugar tiene la temperatura exacta para cualquier paladar. La comida que venden es rica y se nota que es orgánica. La ubicación es ideal y tienen bancos junto con mesas de madera que hacen de la experiencia un poco más excéntrica. Súper recomendable!',
     },
   ],
-  barriochino: [],
+  barriochino: [
+    {
+      name: 'Crispenaranda',
+      time: 'hace 7 meses',
+      rating: 5,
+      text: 'Muy bueno todo! Pedimos el tostado de chipá con jamón y queso, croissant con j&q, carrot cake y pan de chocolate + latte dubai y estuvo todo delicioso, 100% recomendable. Mi única crítica es que podrían tener un toldito para los días de lluvia, el resto todo perfecto.',
+    },
+    {
+      name: 'Yull Boiler',
+      time: 'hace 7 meses',
+      rating: 5,
+      text: 'El único café de especialidad real en todo Barrio Chino, me encantó el sandwich de bondiola. El café es increíble. 10/10.',
+    },
+    {
+      name: 'Brenda Gil Gorrías',
+      time: 'hace 7 meses',
+      rating: 5,
+      text: 'Me encantó! Es la primera vez que voy y la verdad 10/10. Si van prueben el croissant de j&q… el más rico que comí en mucho tiempo.',
+    },
+    {
+      name: 'F B',
+      time: 'hace 10 meses',
+      rating: 5,
+      text: 'Linda cafetería en la vía viva del barrio chino, con muy buena atención. Los alfajores de chocotorta son riquísimos!',
+    },
+    {
+      name: 'Sergio Mauro Brikman',
+      time: 'hace 10 meses',
+      rating: 5,
+      text: 'Excelente cafe, con mucha onda y buenos detalles decorativos (el dragón sacaba humo con aroma a café). Acompañé con un dátil bañado en chocolate y relleno de pasta de maní, muy rico.',
+    },
+    {
+      name: 'Mar Fryda Saez',
+      time: 'hace 7 meses',
+      rating: 5,
+      text: 'Riquísimo todo. Recomiendo el choco lima para tomar y el sándwich de chipa (ambos!).',
+    },
+  ],
 }
 
 const locations = [
