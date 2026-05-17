@@ -21,7 +21,7 @@ const reviewsByLocation: Record<string, { name: string; text: string; time: stri
       name: 'Maite Arza',
       time: 'hace 7 meses',
       rating: 4,
-      text: 'Muy rico café y el pan de chocolate delicioso. Muy amable la atención del "equipo de la tarde". Vine a trabajar con mis ventas mientras tomaba un café y me quedé porque me sentí muy cómoda con el ambiente.',
+      text: 'Muy rico café y el pan de chocolate delicioso. Muy amable la atención del equipo de la tarde. Vine a trabajar con mis ventas mientras tomaba un café y me quedé porque me sentí muy cómoda con el ambiente.',
     },
     {
       name: 'Solci',
